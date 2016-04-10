@@ -1,0 +1,9 @@
+
+
+    .jumbotron {
+            background-color: #f4511e; /* Orange */
+            color: #ffffff;
+        }
+       body{
+          background-image:url('/images/animals/background-animal-images.jpg');
+       }
