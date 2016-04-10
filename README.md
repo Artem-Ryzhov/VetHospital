@@ -1,4 +1,4 @@
-# VetHospital  (Front-End : html/css/ajas/js/bootstrap) (Back-End: Container – Tomcat; ,Build tool – Maven,java,XML,jdbc(PostgreSql),servlets,jsp,junit,
+# VetHospital  (Front-End : html/css/ajax/js/bootstrap) (Back-End: Container – Tomcat; ,Build tool – Maven,java,XML,jdbc(PostgreSql),servlets,jsp,junit,
 
 # Login
 ![ScreenShot](https://github.com/b2b7/VetHospital/blob/master/Photo/login.JPG)
