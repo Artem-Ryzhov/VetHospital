@@ -85,7 +85,7 @@
                     <option onclick="">Выберите Страну</option>
                     <c:forEach var="country" items="${country}" >
                         <option value="${country.getId()}" >
-                            <c:out value="${country.getCounty_name()}"/></option>
+                            <c:out value="${country. getName()}"/></option>
                     </c:forEach>
 
                 </select>

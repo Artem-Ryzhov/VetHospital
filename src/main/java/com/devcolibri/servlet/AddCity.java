@@ -1,6 +1,6 @@
 package com.devcolibri.servlet;
 
-import models.country.City;
+import models.country.Location;
 import store.Storage;
 import store.countrystore.CityStore;
 
@@ -26,12 +26,12 @@ public class AddCity extends HttpServlet {
 
         response.setContentType("text/html:charset=UTF-8");
         int id = Integer.parseInt(request.getParameter("id"));
-        ArrayList<City> cities = (ArrayList<City>) store.getAllObjById(id);
+        ArrayList<Location> cities = (ArrayList<Location>) store.getAllObjById(id);
 
         PrintWriter out = response.getWriter();
         response.getWriter().write("City : <select name = 'cit'>" );
         for (int i = 0; i < cities.size(); i++){
-            response.getWriter().write("<option value = '"+ cities.get(i).getId() +"'  >" + cities.get(i).getCity_name() + "</option>");
+            response.getWriter().write("<option value = '"+ cities.get(i).getId() +"'  >" + cities.get(i).getName() + "</option>");
         }
          response.getWriter().write("</select>");
     }

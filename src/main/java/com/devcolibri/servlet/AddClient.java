@@ -3,8 +3,7 @@ package com.devcolibri.servlet;
 import models.animals.Pets;
 import models.clients.Client;
 import models.clients.IClient;
-import models.country.City;
-import models.country.Country;
+import models.country.Location;
 import store.Storage;
 import store.animalstore.AnimalStorage;
 import store.animalstore.BreedStorage;
@@ -40,15 +39,15 @@ public class AddClient extends HttpServlet {
         int phone = Integer.parseInt(request.getParameter("phone"));
 
         int c = Integer.parseInt(request.getParameter("cou"));
-        Country country = (Country) counry.getById(c);
+        Location country = (Location) counry.getById(c);
         int cit = Integer.parseInt(request.getParameter("cit"));
-        City city  = (City) citystore.getById(cit);
+        Location city  = (Location) citystore.getById(cit);
 
         int type = Integer.parseInt(request.getParameter("animal"));
         Pets pet = (Pets) animalstore.getById(type);
         int bred  = Integer.parseInt(request.getParameter("bre"));
         Pets breed  = (Pets) breedstore.getById(bred);
-        client = new Client(name,lastname,phone,email,country.getCounty_name(),city.getCity_name(),pet.getName(),breed.getName());
+        client = new Client(name,lastname,phone,email,country.getName(),city.getName(),pet.getName(),breed.getName());
 
         clientstore.add(client);
         response.sendRedirect(String.format("%s%s", request.getContextPath(),"/clientview"));

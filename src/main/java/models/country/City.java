@@ -7,12 +7,17 @@ package models.country;
  * Time: 21:17
  * To change this template use File | Settings | File Templates.
  */
-public class City {
+public class City implements Location {
     private int id;
     private String city_name;
     private int country_id;
 
+    public int getCountry_id() {
+        return country_id;
+    }
+
     public City() {
+
     }
 
     public City(int id, String city_name,int country_id ) {
@@ -25,21 +30,23 @@ public class City {
         return id;
     }
 
+    @Override
+    public String getName() {
+        return city_name;
+    }
+
+
+
     public void setId(int id) {
         this.id = id;
     }
 
-    public String getCity_name() {
-        return city_name;
+    @Override
+    public void setName(String name) {
+        this.city_name = name;
     }
 
-    public void setCity_name(String city_name) {
-        this.city_name = city_name;
-    }
 
-    public int getCountry_id() {
-        return country_id;
-    }
 
     public void setCountry_id(int country_id) {
         this.country_id = country_id;

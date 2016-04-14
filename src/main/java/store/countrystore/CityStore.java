@@ -1,6 +1,7 @@
 package store.countrystore;
 
 import models.country.City;
+import models.country.Location;
 import service.DbUtil;
 
 import java.sql.*;
@@ -14,7 +15,7 @@ import java.util.Collection;
  * Time: 13:11
  * To change this template use File | Settings | File Templates.
  */
-public class CityStore  implements ICity{
+public class CityStore  implements ILocationStorage{
     private Connection connection;
 
     public CityStore() {
@@ -22,8 +23,8 @@ public class CityStore  implements ICity{
     }
 
     @Override
-    public Collection<City> getAllValues() {
-        ArrayList<City> list = new ArrayList<>();
+    public Collection<Location> getAllValues() {
+        ArrayList<Location> list = new ArrayList<>();
         try {
             Statement stmt = connection.createStatement();
             ResultSet resultSet = stmt.executeQuery("SELECT * FROM city;");
@@ -42,7 +43,7 @@ public class CityStore  implements ICity{
     }
 
     @Override
-    public int add(City user) {
+    public int add(Location user) {
         return 0;
     }
 
@@ -57,13 +58,13 @@ public class CityStore  implements ICity{
     }
 
     @Override
-    public void edit(City user) {
+    public void edit(Location user) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
-    public City getById(int id) {
-        City city = null;
+    public Location getById(int id) {
+        Location city = null;
         final PreparedStatement statement;
         try {
             statement = this.connection.prepareStatement("SELECT  * " +  "FROM city\n"  +  "WHERE city.city_id = (?)");
@@ -79,9 +80,9 @@ public class CityStore  implements ICity{
     }
 
     @Override
-    public Collection<City> getAllObjById(int id) {
-        ArrayList<City> list = new ArrayList<>();
-        City city = null;
+    public Collection<Location> getAllObjById(int id) {
+        ArrayList<Location> list = new ArrayList<>();
+        Location city = null;
 
         final PreparedStatement statement;
         try {
@@ -108,7 +109,7 @@ public class CityStore  implements ICity{
     }
 
     @Override
-    public Collection<City> getAllClientsWithSameType(String type) {
+    public Collection<Location> getAllClientsWithSameType(String type) {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 

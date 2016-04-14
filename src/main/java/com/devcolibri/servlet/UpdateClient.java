@@ -2,8 +2,7 @@ package com.devcolibri.servlet;
 
 import models.animals.Pets;
 import models.clients.IClient;
-import models.country.City;
-import models.country.Country;
+import models.country.Location;
 import store.Storage;
 import store.animalstore.AnimalStorage;
 import store.animalstore.BreedStorage;
@@ -37,7 +36,7 @@ public class UpdateClient  extends HttpServlet {
     private IClient client;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Country> country = (List<Country>) countrystore.getAllValues();
+        List<Location> country = (List<Location>) countrystore.getAllValues();
         List<Pets> pets = (List<Pets>) animalStorage.getAllValues();
         request.setAttribute("country", country);
         request.setAttribute("pets", pets);
@@ -56,9 +55,9 @@ public class UpdateClient  extends HttpServlet {
         int phone = Integer.parseInt(request.getParameter("phone"));
 
         int c = Integer.parseInt(request.getParameter("id"));
-        Country country = (Country) counry.getById(c);
+        Location country = (Location) counry.getById(c);
         int cit = Integer.parseInt(request.getParameter("cit"));
-        City city  = (City) citystore.getById(cit);
+        Location city  = (Location) citystore.getById(cit);
 
         int type = Integer.parseInt(request.getParameter("animal"));
         Pets pet = (Pets) animalStorage.getById(type);
@@ -68,8 +67,8 @@ public class UpdateClient  extends HttpServlet {
         client.setLastname(lastname);
         client.setEmail(email);
         client.setPhone(phone);
-        client.setCountry(country.getCounty_name());
-        client.setCity(city.getCity_name());
+        client.setCountry(country.getName());
+        client.setCity(city.getName());
         client.setAnimal(pet.getName());
         client.setBreed(breed.getName());
         clientstore.edit(client);

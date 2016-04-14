@@ -1,7 +1,7 @@
 package com.devcolibri.servlet;
 
 import models.animals.Pets;
-import models.country.Country;
+import models.country.Location;
 import store.Storage;
 import store.animalstore.AnimalStorage;
 import store.countrystore.CountryStorage;
@@ -25,7 +25,7 @@ public class AddCountry extends HttpServlet {
     private Storage animalStorage = new AnimalStorage();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Country> country = (List<Country>) countrystore.getAllValues();
+        List<Location> country = (List<Location>) countrystore.getAllValues();
         List<Pets> pets = (List<Pets>) animalStorage.getAllValues();
         request.setAttribute("country", country);
         request.setAttribute("pets", pets);

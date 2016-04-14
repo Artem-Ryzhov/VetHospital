@@ -7,7 +7,7 @@ package models.country;
  * Time: 21:17
  * To change this template use File | Settings | File Templates.
  */
-public class Country {
+public class Country implements Location{
     private int id;
     private String county_name;
 
@@ -23,17 +23,26 @@ public class Country {
         return id;
     }
 
+    @Override
+    public String getName() {
+        return county_name;
+    }
+
+    @Override
+    public int getCountry_id() {
+        return id;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
 
-    public String getCounty_name() {
-        return county_name;
+    @Override
+    public void setName(String name) {
+      this.county_name = name;
     }
 
-    public void setCounty_name(String county_name) {
-        this.county_name = county_name;
-    }
+
 
     @Override
     public String toString() {

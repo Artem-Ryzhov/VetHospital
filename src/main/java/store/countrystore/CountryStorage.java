@@ -1,6 +1,7 @@
 package store.countrystore;
 
 import models.country.Country;
+import models.country.Location;
 import service.DbUtil;
 
 import java.sql.*;
@@ -14,7 +15,7 @@ import java.util.Collection;
  * Time: 13:24
  * To change this template use File | Settings | File Templates.
  */
-public class CountryStorage implements ICountry{
+public class CountryStorage implements ILocationStorage{
     private Connection connection;
 
     public CountryStorage() {
@@ -22,8 +23,8 @@ public class CountryStorage implements ICountry{
     }
 
     @Override
-    public Collection<Country> getAllValues(){
-        ArrayList<Country> list = new ArrayList<>();
+    public Collection<Location> getAllValues(){
+        ArrayList<Location> list = new ArrayList<>();
         try {
             Statement stmt = connection.createStatement();
             ResultSet resultSet = stmt.executeQuery("SELECT * FROM country;");
@@ -41,7 +42,7 @@ public class CountryStorage implements ICountry{
     }
 
     @Override
-    public int add(Country user) {
+    public int add(Location user) {
         return 0;
     }
 
@@ -56,13 +57,13 @@ public class CountryStorage implements ICountry{
     }
 
     @Override
-    public void edit(Country user) {
+    public void edit(Location user) {
 
     }
 
     @Override
-    public Country getById(int id) {
-        Country country = null;
+    public Location getById(int id) {
+        Location country = null;
         final PreparedStatement statement;
         try {
             statement = this.connection.prepareStatement("SELECT  * " +  "FROM country\n"  +  "WHERE id = (?)");
@@ -78,7 +79,7 @@ public class CountryStorage implements ICountry{
     }
 
     @Override
-    public Collection<Country> getAllObjById(int id) {
+    public Collection<Location> getAllObjById(int id) {
         return null;
     }
 
@@ -92,7 +93,7 @@ public class CountryStorage implements ICountry{
     }
 
     @Override
-    public Collection<Country> getAllClientsWithSameType(String type) {
+    public Collection<Location> getAllClientsWithSameType(String type) {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }
